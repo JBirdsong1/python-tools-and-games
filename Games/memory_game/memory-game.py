@@ -2,7 +2,17 @@ import random
 import os
 import time
 
+print("***Lets have some fun***")
+print("***The memory game is meant to challenge you***")
+print("***The game is simple you choose 2 spaces on the board and hope they match***")
+print("***The twist is if it doesn't match you start back from square one***")
+print("***I hope you have a good memory***")
+print("***Good luck and remember have fun***")
+input("\nPress Enter to begin the game...")
+
+
 class MemoryGame:
+
     def __init__(self, size=4):
         self.size = size
         self.symbols = ['🌟', '🌙', '🌍', '🌈', '🌺', '🍀', '🎵', '🎨'][:size*size//2] * 2
