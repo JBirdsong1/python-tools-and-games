@@ -23,6 +23,30 @@ class Team:
     def __init__(self, color):
         self.color = color
         self.score = 0
+        
+def select_mode():
+    """Creates an initial menu window to select single player or multiplayer."""
+    global game_mode
+    menu = tk.Tk()
+    menu.title("Game Mode Selection")
+    
+    label = tk.Label(menu, text="Choose Game Mode:", font=("Arial", 14), pady=10)
+    label.pack()
+    def set_mode(mode):
+        global game_mode
+        game_mode = mode
+        menu.destroy()
+        draw_board()
+
+    sp_btn = tk.Button(menu, text="Single Player (vs AI)", width=20, command=lambda: set_mode("single"))
+    sp_btn.pack(pady=5)
+    
+    mp_btn = tk.Button(menu, text="Multiplayer (Local)", width=20, command=lambda: set_mode("multi"))
+    mp_btn.pack(pady=5)
+    
+    menu.mainloop()
+    
+    
 
 def draw_board():
     root = tk.Tk()
@@ -319,5 +343,7 @@ def draw_board():
 
     redraw_board()
     root.mainloop()
+    
+
 
 draw_board()
